@@ -7,9 +7,7 @@ var score_tracker : ScoreTracker
 @export var value : int = 3
 
 func _ready():
-	for child in get_tree().get_children():
-		if child is ScoreTracker:
-			score_tracker = child
+	score_tracker = get_tree()
 
 func _process(delta):
 	pass
