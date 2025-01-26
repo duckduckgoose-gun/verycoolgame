@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1kxlrukvu1md"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_ais78"]
+[ext_resource type="SpriteFrames" uid="uid://bd52y85gj81xt" path="res://other-assets/player_topdown.tres" id="2_fphft"]
+[ext_resource type="PackedScene" path="res://scenes/shadow.tscn" id="3_6qnjt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lx3vm"]
+radius = 5.0
+height = 12.0
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_ais78")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+sprite_frames = ExtResource("2_fphft")
+animation = &"idle_back"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lx3vm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Shadow" parent="." instance=ExtResource("3_6qnjt")]
+position = Vector2(0, 6)

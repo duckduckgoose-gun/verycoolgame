@@ -26,16 +26,10 @@ func _ready():
 	vector_index = randi() % 4
 
 func _physics_process(delta):
-	var collision = move_and_collide(movement_vectors[vector_index] * speed * delta)
+	#
 	steal_timer += delta
 	if collision:
 		_body_entered()
-
-		var collider = collision.get_collider()
-		if collider is Chair: collider.pull_out()
-		elif collider.name == "Player" and steal_timer >= steal_cooldown:
-			GlobalVars.add_coins(-2 - randi() % 3, true)
-			steal_timer = 0
 
 	if trash_timer >= cur_trash_time:
 		create_trash()
@@ -54,9 +48,20 @@ func create_trash():
 	
 
 func _body_entered():
+func _body_entered(body):
 	# change movement
 	var available_indices = []
 	for i in range(4):
 		if i != vector_index:
 			available_indices.append(i)
 	vector_index = available_indices[randi() % 3]
+	
+	if body.name == "Chair": body.pull_out()
+	elif body.name == "Player" and steal_timer>steal_cooldown:
+		print("stealing")
+		GlobalVars.add_coins(-2 - randi() % 3, true)
+		steal_timer = 0
+		var vector_copy = vector_index
+		while vector_copy == vector_index:
+			vector_index = randi() % 4
+			print(vector_index,vector_copy)

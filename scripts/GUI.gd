@@ -28,4 +28,4 @@ func fade_label():
 func _ready():
 	GlobalVars.coin_change.connect(on_score_changed)
 	GlobalVars.robbery.connect(on_robbery)
-
+	steal_label.modulate.a = 0
