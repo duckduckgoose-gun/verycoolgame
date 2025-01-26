@@ -11,5 +11,7 @@ func _process(delta):
 	pass
 
 func collect(body):
-	GlobalVars.add_coins(value)
-	self.queue_free()
+	if body.name == "Player":
+		GlobalVars.add_coins(value)
+		print(GlobalVars.coins)
+		self.queue_free()

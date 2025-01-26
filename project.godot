@@ -19,6 +19,10 @@ config/icon="res://textures/icon.svg"
 
 GlobalVars="*res://scripts/World.gd"
 
+[gui]
+
+theme/custom_font="res://other-assets/DePixelHalbfett.ttf"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
