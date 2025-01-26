@@ -4,21 +4,21 @@ signal coin_change
 signal robbery
 signal win
 
-var inventory: Dictionary = {
-	"trash": 0,
-	"special_bread": 0, # coin multiplier or smthj lmao
-	"focaccia_bread": 0
-}
+# var inventory: Dictionary = {
+# 	"trash": 0,
+# 	"special_bread": 0, # coin multiplier or smthj lmao
+# 	"focaccia_bread": 0
+# }
 var coins: int = 0
 var previously_won = false
 
 func _process(delta):
-	if inventory["focaccia_bread"] > 0 and not previously_won:
+	if GlobalVars.inventory["focaccia_bread"] > 0 and not previously_won:
 		win.emit()
 		previously_won = true
 
-func add_trash(type : String):
-	inventory[type] += 1
+func add_trash():
+	GlobalVars.inventory["trash"] += 1
 
 enum States {INSIDE,OUTSIDE}
 signal game_mode_changed(new_state)
