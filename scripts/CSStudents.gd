@@ -26,6 +26,12 @@ func _physics_process(delta):
 	if collision:
 		_body_entered()
 
+        const collider = collision.get_collider()
+        if collider is Chair: collider.pull_out()
+        if collider.name == "Player":
+            GlobalVars.add_coins(-3)
+            
+
     if trash_timer >= cur_trash_time:
         create_trash()
     else:
