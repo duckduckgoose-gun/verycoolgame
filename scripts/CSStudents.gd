@@ -20,7 +20,7 @@ var trash_timer = 0
 var steal_timer = 1234567890
 
 const trash = preload("res://scenes/trash.tscn")
-
+@onready var all_trash = $"../../TrashInst"
 func _ready():
 	cur_trash_time = trash_time + trash_margin * (2 * randf() - 1)
 	vector_index = randi() % 4
@@ -28,13 +28,14 @@ func _ready():
 func _physics_process(delta):
 	#
 	steal_timer += delta
-	if collision:
-		_body_entered()
-
+	
+	move_and_collide(movement_vectors[vector_index] * delta * speed)
+	
 	if trash_timer >= cur_trash_time:
 		create_trash()
 	else:
 		trash_timer += delta
+	
 
 func create_trash():
 	cur_trash_time = trash_time + trash_margin * (2 * randf() - 1)
@@ -43,11 +44,10 @@ func create_trash():
 	#var trash_name = trash_names[randi() % trash_names.size()];
 	#var new_trash = get_tree().call_deferred("add_child", load("res://scenes/trash.tscn").instantiate())
 	var new_trash = trash.instantiate()
-	get_tree().root.add_child(new_trash)
+	all_trash.add_child(new_trash)
 	new_trash.position = position
 	
 
-func _body_entered():
 func _body_entered(body):
 	# change movement
 	var available_indices = []

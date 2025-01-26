@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr7i5lcr20ltn"]
+[gd_scene load_steps=7 format=3 uid="uid://b2h4hpnk86sob"]
 
-[ext_resource type="Texture2D" uid="uid://rosn2gw5akla" path="res://textures/table.png" id="1_12mss"]
+[ext_resource type="Texture2D" uid="uid://temmo6hdm6xq" path="res://textures/chair.png" id="1_72syr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36ece"]
 
@@ -20,23 +20,24 @@ fill_from = Vector2(0.00688073, 0.222477)
 fill_to = Vector2(0, 0.00688073)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2q3gq"]
-size = Vector2(64, 26)
+size = Vector2(14, 10)
 
-[node name="table" type="Node2D"]
+[node name="chair" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 1.5)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
-position = Vector2(0, 7.39)
-scale = Vector2(31, 11.11)
+position = Vector2(-5.36442e-07, 6.5)
+scale = Vector2(7, 5)
 mesh = SubResource("PlaneMesh_gu3qy")
 texture = SubResource("GradientTexture2D_nqnuy")
 
-[node name="Table" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(0, -1.5)
-texture = ExtResource("1_12mss")
+[node name="Chair" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-5.96046e-08, -1.5)
+scale = Vector2(1.1875, 1.375)
+texture = ExtResource("1_72syr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -3.5)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_2q3gq")

@@ -1,13 +1,9 @@
 extends Area2D
 
-@onready var vending = $CanvasLayer/VendingList
-@onready var special_bread_btn = $CanvasLayer/Buy1
-@onready var focaccia_bread_btn = $CanvasLayer/Buy2
+@onready var vending = $CanvasLayer/Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	special_bread_btn.pressed.connect(func(): attempt_purchase(6, "special_bread"))
-	focaccia_bread_btn.pressed.connect(func(): attempt_purchase(54, "focaccia_bread"))
 	pass # Replace with function body.
 
 
@@ -15,6 +11,11 @@ func _ready():
 func _process(delta):
 	pass
 
+func buy_1():
+	attempt_purchase(6, "special_bread")
+
+func buy_2():
+	attempt_purchase(54, "focaccia_bread")
 
 func attempt_purchase(price, item):
 	if GlobalVars.coins < price:

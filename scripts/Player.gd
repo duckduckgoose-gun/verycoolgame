@@ -47,3 +47,7 @@ func _physics_process(_delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	play_animation()
 	move_and_slide()
+
+
+func buy_2():
+	pass # Replace with function body.

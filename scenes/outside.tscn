@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://diqx3rrwuhh6"]
+[gd_scene load_steps=9 format=3 uid="uid://diqx3rrwuhh6"]
 
 [ext_resource type="PackedScene" uid="uid://b1kxlrukvu1md" path="res://scenes/player.tscn" id="1_f6fvf"]
 [ext_resource type="Texture2D" uid="uid://blqa2daftquch" path="res://textures/ground.png" id="2_5f8ie"]
@@ -32,6 +32,10 @@ sources/0 = SubResource("TileSetAtlasSource_ijy3a")
 [sub_resource type="CircleShape2D" id="CircleShape2D_3rg61"]
 radius = 22.3607
 
+[sub_resource type="LabelSettings" id="LabelSettings_8f7rf"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Outside" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -56,13 +60,38 @@ shape = SubResource("CircleShape2D_3rg61")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Area2D"]
 
-[node name="VendingList" type="ItemList" parent="Area2D/CanvasLayer"]
+[node name="Label" type="Label" parent="Area2D/CanvasLayer"]
+offset_left = 459.0
+offset_top = 70.0
+offset_right = 574.0
+offset_bottom = 91.0
+text = "item sold!"
+label_settings = SubResource("LabelSettings_8f7rf")
+
+[node name="Control" type="Control" parent="Area2D/CanvasLayer"]
 visible = false
-offset_left = 461.0
-offset_top = 186.0
-offset_right = 501.0
-offset_bottom = 226.0
-scale = Vector2(2.68, 2.32)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 278.0
+offset_top = 63.0
+offset_right = 560.0
+offset_bottom = 270.0
+
+[node name="Buy 1" type="Button" parent="Area2D/CanvasLayer/Control"]
+offset_left = 151.0
+offset_top = 115.0
+offset_right = 316.0
+offset_bottom = 155.0
+text = "Buy Special Bread (powerup)
+$6"
+
+[node name="Buy 2" type="Button" parent="Area2D/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 167.0
+offset_right = 319.0
+offset_bottom = 207.0
+text = "Buy Foccacia (winner!!) $54"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -76,3 +105,5 @@ scale = Vector2(3.68, 2.36)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="pressed" from="Area2D/CanvasLayer/Control/Buy 1" to="Area2D" method="buy_1"]
+[connection signal="pressed" from="Area2D/CanvasLayer/Control/Buy 2" to="Area2D" method="buy_2"]
