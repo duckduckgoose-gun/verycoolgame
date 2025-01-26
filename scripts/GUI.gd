@@ -16,11 +16,14 @@ func on_score_changed():
 
 func on_robbery():
 	print("homeless cs kid sto;e your money lmao")
-	set("theme_override_colors/font_color", Color(1,1,1,1))
+	steal_label.modulate.a = 1
 	fade_label()
 
 func fade_label():
-	steal_label.set_modulate(lerp(steal_label.modulate, Color(1,1,1,0), 0.2))
+	for i in range(101):
+		print(steal_label.modulate.a)
+		await get_tree().create_timer(.01).timeout
+		steal_label.modulate.a = move_toward(steal_label.modulate.a, 0, 0.01)
 
 func _ready():
 	GlobalVars.coin_change.connect(on_score_changed)
