@@ -8,6 +8,8 @@ const movement_vectors : Array[Vector2] = [
 # 	"welchs", "welchs"
 # ]
 
+const sprite = $CsStudent
+
 var vector_index = 0;
 @export var speed : float = 40
 @export var steal_cooldown : float = .25
@@ -35,6 +37,8 @@ func _physics_process(delta):
 		create_trash()
 	else:
 		trash_timer += delta
+
+	sprite.position.y = round((sin(time_elapsed * 18) + 1) / 2) * 0.5
 	
 
 func create_trash():
