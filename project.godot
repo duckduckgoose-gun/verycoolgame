@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="ddg-gh"
+run/main_scene="res://scenes/World.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://textures/icon.svg"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
