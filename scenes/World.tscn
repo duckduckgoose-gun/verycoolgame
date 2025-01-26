@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://btf6ckakk36m7"]
+[gd_scene load_steps=15 format=3 uid="uid://btf6ckakk36m7"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_e2rtj"]
 [ext_resource type="Script" path="res://scripts/World.gd" id="1_g0fv4"]
@@ -6,11 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://blqa2daftquch" path="res://textures/ground.png" id="3_3hvb5"]
 [ext_resource type="Script" path="res://scripts/GUI.gd" id="6_xftqb"]
 [ext_resource type="PackedScene" uid="uid://dei83n42liptn" path="res://scenes/trash.tscn" id="7_4xgc8"]
-[ext_resource type="PackedScene" uid="uid://ciwt2o762wxmj" path="res://scenes/shadow.tscn" id="7_fikur"]
+[ext_resource type="PackedScene" path="res://scenes/shadow.tscn" id="7_fikur"]
 [ext_resource type="PackedScene" uid="uid://5gmd741l1df2" path="res://scenes/cs_student.tscn" id="8_av4lr"]
 [ext_resource type="FontFile" uid="uid://hcxxgbiyljrl" path="res://other-assets/DePixelHalbfett.ttf" id="9_ur5sd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pd6rb"]
+font = ExtResource("9_ur5sd")
+font_size = 20
+font_color = Color(1, 1, 1, 0)
+outline_size = 5
+outline_color = Color(0, 0, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_10qu6"]
 font = ExtResource("9_ur5sd")
 font_size = 20
 outline_size = 5
@@ -71,7 +78,7 @@ offset_top = 94.704
 offset_right = -14.848
 offset_bottom = -39.352
 text = "Coins: 0"
-label_settings = SubResource("LabelSettings_pd6rb")
+label_settings = SubResource("LabelSettings_10qu6")
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -2

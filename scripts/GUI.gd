@@ -6,13 +6,7 @@ extends CanvasLayer
 func lerp(a, b, t):
 	return a + (b - a) * t
 
-func _process(delta):
-	var font_color = steal_label.font_color
-	var font_out_color = steal_label.font_outline_color
-	font_color.a = lerp(font_color.a, 0, 0.2)
-	font_out_color.a = lerp(font_out_color.a, 0, 0.2)
-	steal_label.font_color = font_color
-	steal_label.font_outline_color = font_out_color
+#func _process(delta):
 
 func on_score_changed():
 	print("score was changed")
@@ -22,9 +16,13 @@ func on_score_changed():
 
 func on_robbery():
 	print("homeless cs kid sto;e your money lmao")
-	steal_label.font_color.a = 1
-	steal_label.font_outline_color.a = 1
-	
+	set("theme_override_colors/font_color", Color(1,1,1,1))
+	fade_label()
+
+func fade_label():
+	steal_label.set_modulate(lerp(steal_label.modulate, Color(1,1,1,0), 0.2))
+
 func _ready():
 	GlobalVars.coin_change.connect(on_score_changed)
+	GlobalVars.robbery.connect(on_robbery)
 

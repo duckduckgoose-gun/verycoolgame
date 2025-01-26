@@ -11,9 +11,15 @@ position = Vector2(-18, 27)
 script = ExtResource("1_c7v7x")
 trash_time = 2.25
 
+shape = SubResource("CircleShape2D_ocxli")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.08, 0.080887)
 texture = ExtResource("2_5vb72")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ocxli")
+
+[connection signal="body_entered" from="Area2D" to="." method="_body_entered"]
