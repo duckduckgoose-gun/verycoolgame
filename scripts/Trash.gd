@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 # @onready @export
 
@@ -7,14 +7,13 @@ var score_tracker : ScoreTracker
 @export var value : int = 3
 
 func _ready():
-    connect("body_entered", self, "collect")
-    for child in get_tree():
-        if child is ScoreTracker:
-            score_tracker = child
+	for child in get_tree().get_children():
+		if child is ScoreTracker:
+			score_tracker = child
 
 func _process(delta):
-    pass
+	pass
 
 func collect():
-    score_tracker.add_coins(value)
-    self.queue_free()
+	score_tracker.add_coins(value)
+	self.queue_free()
