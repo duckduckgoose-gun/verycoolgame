@@ -22,7 +22,9 @@ func _physics_process(delta):
 		_body_entered()
 
 func create_trash():
-    //
+    cur_trash_time = trash_time + trash_margin * (2 * randfn() - 1)
+    # spawn trash lmao
+    
 
 func _body_entered():
 	# change movement
