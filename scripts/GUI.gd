@@ -26,17 +26,7 @@ func fade_label():
 		await get_tree().create_timer(.01).timeout
 		steal_label.modulate.a = move_toward(steal_label.modulate.a, 0, 0.01)
 
-func win_screen():
-	win_screen_.show()
-
-func set_shop_visibility(peepeepoopoo):
-	if peepeepoopoo:
-		win_screen_.show()
-	else: win_screen_.hide()
-
 func _ready():
 	GlobalVars.coin_change.connect(on_score_changed)
 	GlobalVars.robbery.connect(on_robbery)
-	GlobalVars.win.connect(win_screen)
-	GlobalVars.shop_visibility_lmao.connect(set_shop_visibility)
 	steal_label.modulate.a = 0

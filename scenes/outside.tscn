@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://diqx3rrwuhh6"]
+[gd_scene load_steps=8 format=3 uid="uid://diqx3rrwuhh6"]
 
 [ext_resource type="PackedScene" uid="uid://b1kxlrukvu1md" path="res://scenes/player.tscn" id="1_f6fvf"]
 [ext_resource type="Texture2D" uid="uid://blqa2daftquch" path="res://textures/ground.png" id="2_5f8ie"]
+[ext_resource type="Script" path="res://scenes/Vending.gd" id="3_3q6wa"]
+[ext_resource type="Texture2D" uid="uid://d384ap8owuv2w" path="res://textures/bread_vending_machine.png" id="3_alt3l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ijy3a"]
 texture = ExtResource("2_5f8ie")
@@ -27,6 +29,9 @@ texture = ExtResource("2_5f8ie")
 [sub_resource type="TileSet" id="TileSet_iov4l"]
 sources/0 = SubResource("TileSetAtlasSource_ijy3a")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3rg61"]
+radius = 22.3607
+
 [node name="Outside" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -36,3 +41,38 @@ layer_0/tile_data = PackedInt32Array(196616, 262144, 1, 262152, 262144, 1, 32768
 
 [node name="Player" parent="." instance=ExtResource("1_f6fvf")]
 position = Vector2(512, 232)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(153, 109)
+script = ExtResource("3_3q6wa")
+
+[node name="BreadVendingMachine" type="Sprite2D" parent="Area2D"]
+position = Vector2(355, 46)
+texture = ExtResource("3_alt3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(355, 54)
+shape = SubResource("CircleShape2D_3rg61")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Area2D"]
+
+[node name="VendingList" type="ItemList" parent="Area2D/CanvasLayer"]
+visible = false
+offset_left = 461.0
+offset_top = 186.0
+offset_right = 501.0
+offset_bottom = 226.0
+scale = Vector2(2.68, 2.32)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WinScreen" type="Panel" parent="CanvasLayer"]
+visible = false
+offset_left = 450.0
+offset_top = 192.0
+offset_right = 490.0
+offset_bottom = 232.0
+scale = Vector2(3.68, 2.36)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

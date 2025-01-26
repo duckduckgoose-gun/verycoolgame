@@ -8,7 +8,7 @@ var inventory: Dictionary = {
 	"metal_cans": 0,
 	"wrappers": 0,
 	"sandvich": 0,
-	"special_bread": 0 # coin multiplier or smthj lmao
+	"special_bread": 0, # coin multiplier or smthj lmao
 	"focaccia_bread": 0
 }
 var coins: int = 0

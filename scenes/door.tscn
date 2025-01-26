@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxb0gbvyo45si"]
 
-[ext_resource type="Script" path="res://scenes/door.gd" id="1_2vyca"]
+[ext_resource type="Script" path="res://door.gd" id="1_6qdx3"]
 [ext_resource type="Texture2D" uid="uid://dimswx56pxsk5" path="res://textures/door_open.png" id="1_cin05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsmgg"]
 size = Vector2(12, 16)
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("1_2vyca")
+script = ExtResource("1_6qdx3")
 destination = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
