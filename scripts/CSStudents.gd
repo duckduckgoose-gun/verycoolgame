@@ -3,10 +3,10 @@ extends CharacterBody2D
 const movement_vectors = [
 	Vector2(1, 0), Vector2(-1, 0), Vector2(0, 1), Vector2(0, -1)
 ]
-const trash_names : Array[String] = [
-	"cola", "sprite", "pepsi",
-	"welchs", "welchs"
-]
+# const trash_names : Array[String] = [
+# 	"cola", "sprite", "pepsi",
+# 	"welchs", "welchs"
+# ]
 
 var vector_index = 0;
 @export var speed : float
@@ -17,7 +17,7 @@ var vector_index = 0;
 
 var cur_trash_time = 0
 var trash_timer = 0
-var steal_timer = 999999999
+var steal_timer = 1234567890
 
 const trash = preload("res://scenes/trash.tscn")
 
