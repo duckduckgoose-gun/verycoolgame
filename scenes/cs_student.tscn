@@ -9,6 +9,7 @@ radius = 6.0
 [node name="CSStudent" type="CharacterBody2D"]
 position = Vector2(-18, 27)
 script = ExtResource("1_c7v7x")
+trash_time = 2.25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.08, 0.080887)

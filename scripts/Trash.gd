@@ -2,13 +2,22 @@ extends Area2D
 
 # @onready @export
 
-@export var value : int = 3
+const textures = [
+	preload("res://textures/trash/cola.png"),
+	preload("res://textures/trash/pepsi.png"),
+	preload("res://textures/trash/sprite.png"),
+	preload("res://textures/trash/welchs.png"),
+	preload("res://textures/trash/welchs.png")
+]
+var value : int = 3
+var time_elapsed : float = 0
 
 func _ready():
-	pass
+	$Sprite2D.texture = textures[randi() % textures.size()]
 
 func _process(delta):
-	pass
+	time_elapsed += delta
+	$Sprite2D.position.y = round((sin(time_elapsed * 15) + 1) / 2) * 0.5
 
 func collect(body):
 	if body.name == "Player":
