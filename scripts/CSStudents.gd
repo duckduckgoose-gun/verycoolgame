@@ -10,12 +10,14 @@ const trash_names = [
 
 var vector_index = 0;
 @export var speed : float
+@export var steal_cooldown : float = 1
 @export var trash_time : float = 4.5
 @export var trash_margin : float = 0.42
 @export var chair_probability : float = 0.56
 
 var cur_trash_time = 0
 var trash_timer = 0
+var steal_timer = 0
 
 func _ready():
     cur_trash_time = trash_time + trash_margin * (2 * randfn() - 1)
@@ -23,14 +25,15 @@ func _ready():
 
 func _physics_process(delta):
 	var collision = move_and_collide(movement_vectors[vector_index] * speed * delta)
+    steal_cooldown += delta
 	if collision:
 		_body_entered()
 
         const collider = collision.get_collider()
         if collider is Chair: collider.pull_out()
-        if collider.name == "Player":
+        if collider.name == "Player" and steal_timer >= steal_cooldown:
             GlobalVars.add_coins(-3)
-            
+            steal_timer = 0
 
     if trash_timer >= cur_trash_time:
         create_trash()
