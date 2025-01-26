@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://5gmd741l1df2"]
+[gd_scene load_steps=5 format=3 uid="uid://pnyfv8xjijgf"]
 
-[ext_resource type="Script" path="res://scripts/CSStudents.gd" id="1_c7v7x"]
-[ext_resource type="Texture2D" uid="uid://dhkpdfrcuwoxo" path="res://textures/cs_student.png" id="2_r1q2t"]
+[ext_resource type="Script" path="res://scripts/CSStudents.gd" id="1_5ydfy"]
+[ext_resource type="Texture2D" uid="uid://dhkpdfrcuwoxo" path="res://textures/cs_student.png" id="2_joyns"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a86wn"]
 height = 26.0
@@ -11,7 +11,7 @@ radius = 9.0
 
 [node name="CSStudent" type="CharacterBody2D"]
 position = Vector2(-18, 27)
-script = ExtResource("1_c7v7x")
+script = ExtResource("1_5ydfy")
 trash_time = 2.25
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -25,6 +25,7 @@ shape = SubResource("CircleShape2D_ocxli")
 
 [node name="CsStudent" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
-texture = ExtResource("2_r1q2t")
+texture = ExtResource("2_joyns")
+flip_h = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_body_entered"]

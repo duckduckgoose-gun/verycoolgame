@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4n1m83uiaykq"]
+[gd_scene load_steps=20 format=3 uid="uid://b4n1m83uiaykq"]
 
 [ext_resource type="Script" path="res://scripts/GUI.gd" id="1_3ppcm"]
 [ext_resource type="FontFile" uid="uid://hcxxgbiyljrl" path="res://other-assets/DePixelHalbfett.ttf" id="2_heu5s"]
@@ -10,15 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://cr7i5lcr20ltn" path="res://scenes/table.tscn" id="8_k5ok1"]
 [ext_resource type="PackedScene" uid="uid://cxb0gbvyo45si" path="res://scenes/door.tscn" id="9_4xp7n"]
 [ext_resource type="PackedScene" uid="uid://dr4dta3jms8oo" path="res://scenes/tablev.tscn" id="9_v52rc"]
+[ext_resource type="PackedScene" uid="uid://pnyfv8xjijgf" path="res://scenes/cs_student_flipped.tscn" id="10_whtl2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qh3kb"]
-size = Vector2(499, 43)
+size = Vector2(499, 41.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpble"]
 size = Vector2(51.5, 385.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x38ev"]
-size = Vector2(27, 383.75)
+size = Vector2(28, 383.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_it6by"]
 size = Vector2(559.75, 20.875)
@@ -65,7 +66,7 @@ sources/0 = SubResource("TileSetAtlasSource_2rsn6")
 position = Vector2(-98, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(103, 216)
+position = Vector2(103, 214.75)
 shape = SubResource("RectangleShape2D_qh3kb")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
@@ -73,7 +74,7 @@ position = Vector2(-169, 22)
 shape = SubResource("RectangleShape2D_wpble")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(351.5, 21.125)
+position = Vector2(351, 21.125)
 shape = SubResource("RectangleShape2D_x38ev")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
@@ -103,10 +104,10 @@ anchor_left = -0.124
 anchor_top = -0.123
 anchor_right = 0.124
 anchor_bottom = 0.124
-offset_left = 161.848
-offset_top = 94.704
-offset_right = -14.848
-offset_bottom = -39.352
+offset_left = 180.848
+offset_top = 92.704
+offset_right = 4.152
+offset_bottom = -41.352
 text = "Coins: 0"
 label_settings = SubResource("LabelSettings_10qu6")
 metadata/_edit_use_anchors_ = true
@@ -123,69 +124,90 @@ position = Vector2(0, -167)
 scale = Vector2(1, 0.895223)
 
 [node name="Player" parent="." instance=ExtResource("5_ol44o")]
+y_sort_enabled = true
 
 [node name="TrashInst" type="Node2D" parent="."]
 
 [node name="Trash" parent="TrashInst" instance=ExtResource("7_bqb10")]
 
-[node name="CSStudentInst" type="Node2D" parent="."]
+[node name="tables" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="CSStudent" parent="CSStudentInst" instance=ExtResource("8_h8b45")]
-speed = 40.0
-steal_cooldown = 0.25
-
-[node name="furnaturjekf" type="Node2D" parent="."]
-
-[node name="chair2" parent="furnaturjekf" instance=ExtResource("3_xg31g")]
-position = Vector2(-91, -36)
-
-[node name="chair3" parent="furnaturjekf" instance=ExtResource("3_xg31g")]
-position = Vector2(-227, 43)
-
-[node name="chair4" parent="furnaturjekf" instance=ExtResource("3_xg31g")]
-position = Vector2(56, 34)
-
-[node name="chair5" parent="furnaturjekf" instance=ExtResource("3_xg31g")]
-position = Vector2(168, 69)
-
-[node name="chair6" parent="furnaturjekf" instance=ExtResource("3_xg31g")]
-position = Vector2(-59, 85)
-
-[node name="chair" parent="furnaturjekf" instance=ExtResource("3_xg31g")]
-position = Vector2(-142, -37)
-
-[node name="chair7" parent="furnaturjekf" instance=ExtResource("3_xg31g")]
-position = Vector2(151, -91)
-
-[node name="table2" parent="furnaturjekf" instance=ExtResource("8_k5ok1")]
+[node name="table2" parent="tables" instance=ExtResource("8_k5ok1")]
 position = Vector2(-142, -87)
 
-[node name="table3" parent="furnaturjekf" instance=ExtResource("8_k5ok1")]
+[node name="table3" parent="tables" instance=ExtResource("8_k5ok1")]
 position = Vector2(133, -72)
 
-[node name="table4" parent="furnaturjekf" instance=ExtResource("8_k5ok1")]
+[node name="table4" parent="tables" instance=ExtResource("8_k5ok1")]
 position = Vector2(74, 56)
 
-[node name="table5" parent="furnaturjekf" instance=ExtResource("8_k5ok1")]
+[node name="table5" parent="tables" instance=ExtResource("8_k5ok1")]
 position = Vector2(12, -74)
 
-[node name="table6" parent="furnaturjekf" instance=ExtResource("8_k5ok1")]
+[node name="table6" parent="tables" instance=ExtResource("8_k5ok1")]
 position = Vector2(-38, 104)
 
-[node name="table7" parent="furnaturjekf" instance=ExtResource("9_v52rc")]
+[node name="table7" parent="tables" instance=ExtResource("9_v52rc")]
 position = Vector2(-144, 4)
 
-[node name="table8" parent="furnaturjekf" instance=ExtResource("9_v52rc")]
+[node name="table8" parent="tables" instance=ExtResource("9_v52rc")]
 position = Vector2(116, -29)
 
-[node name="table" parent="furnaturjekf" instance=ExtResource("8_k5ok1")]
+[node name="table" parent="tables" instance=ExtResource("8_k5ok1")]
 position = Vector2(-98, -18)
 
-[node name="table9" parent="furnaturjekf" instance=ExtResource("9_v52rc")]
-position = Vector2(-228, -66)
+[node name="table9" parent="tables" instance=ExtResource("9_v52rc")]
+position = Vector2(-226, -66)
 
-[node name="table10" parent="furnaturjekf" instance=ExtResource("9_v52rc")]
-position = Vector2(-227, 84)
+[node name="table10" parent="tables" instance=ExtResource("9_v52rc")]
+position = Vector2(-226, 84)
 
-[node name="chair8" parent="furnaturjekf" instance=ExtResource("3_xg31g")]
+[node name="CSStudentInst" type="Node2D" parent="tables"]
+y_sort_enabled = true
+
+[node name="CSStudent" parent="tables/CSStudentInst" instance=ExtResource("8_h8b45")]
+
+[node name="CSStudent2" parent="tables/CSStudentInst" instance=ExtResource("8_h8b45")]
+position = Vector2(-142, 139)
+
+[node name="CSStudent3" parent="tables/CSStudentInst" instance=ExtResource("8_h8b45")]
+position = Vector2(67, 101)
+
+[node name="CSStudent4" parent="tables/CSStudentInst" instance=ExtResource("8_h8b45")]
+position = Vector2(-112, 41)
+
+[node name="CSStudent5" parent="tables/CSStudentInst" instance=ExtResource("10_whtl2")]
+position = Vector2(-192, -4)
+
+[node name="CSStudent6" parent="tables/CSStudentInst" instance=ExtResource("10_whtl2")]
+position = Vector2(-83, -95)
+
+[node name="CSStudent7" parent="tables/CSStudentInst" instance=ExtResource("10_whtl2")]
+position = Vector2(76, -79)
+
+[node name="chairs" type="Node2D" parent="tables"]
 position = Vector2(-23, -63)
+
+[node name="chair2" parent="tables/chairs" instance=ExtResource("3_xg31g")]
+position = Vector2(-68, 27)
+
+[node name="chair3" parent="tables/chairs" instance=ExtResource("3_xg31g")]
+position = Vector2(-204, 106)
+
+[node name="chair4" parent="tables/chairs" instance=ExtResource("3_xg31g")]
+position = Vector2(79, 97)
+
+[node name="chair5" parent="tables/chairs" instance=ExtResource("3_xg31g")]
+position = Vector2(191, 132)
+
+[node name="chair6" parent="tables/chairs" instance=ExtResource("3_xg31g")]
+position = Vector2(-36, 148)
+
+[node name="chair" parent="tables/chairs" instance=ExtResource("3_xg31g")]
+position = Vector2(-119, 26)
+
+[node name="chair7" parent="tables/chairs" instance=ExtResource("3_xg31g")]
+position = Vector2(174, -28)
+
+[node name="chair8" parent="tables/chairs" instance=ExtResource("3_xg31g")]

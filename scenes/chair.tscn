@@ -19,8 +19,9 @@ gradient = SubResource("Gradient_iqd26")
 fill_from = Vector2(0.00688073, 0.222477)
 fill_to = Vector2(0, 0.00688073)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q3gq"]
-size = Vector2(14, 10)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qd7fu"]
+radius = 5.0
+height = 16.0011
 
 [node name="chair" type="Node2D"]
 
@@ -40,4 +41,5 @@ texture = ExtResource("1_72syr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_2q3gq")
+rotation = -1.57027
+shape = SubResource("CapsuleShape2D_qd7fu")

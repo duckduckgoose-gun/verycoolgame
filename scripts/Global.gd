@@ -4,13 +4,15 @@ signal coin_change
 signal robbery
 signal win
 signal item_bought
+signal sold
+signal trash_collected
 
 var inventory: Dictionary = {
  	"trash": 0,
  	"special_bread": 0, # coin multiplier or smthj lmao
  	"focaccia_bread": 0
  }
-var coins: int = 0
+var coins: int = 10
 var previously_won = false
 
 func _process(delta):
@@ -20,6 +22,7 @@ func _process(delta):
 
 func add_trash():
 	inventory["trash"] += 1
+	trash_collected.emit()
 
 enum States {INSIDE,OUTSIDE}
 signal game_mode_changed(new_state)

@@ -9,8 +9,8 @@ const movement_vectors : Array[Vector2] = [
 # ]
 
 var vector_index = 0;
-@export var speed : float
-@export var steal_cooldown : float = 1
+@export var speed : float = 40
+@export var steal_cooldown : float = .25
 @export var trash_time : float = 4.5
 @export var trash_margin : float = 0.42
 @export var chair_probability : float = 0.56
@@ -20,7 +20,7 @@ var trash_timer = 0
 var steal_timer = 1234567890
 
 const trash = preload("res://scenes/trash.tscn")
-@onready var all_trash = $"../../TrashInst"
+@onready var all_trash = $"../../../TrashInst"
 func _ready():
 	cur_trash_time = trash_time + trash_margin * (2 * randf() - 1)
 	vector_index = randi() % 4
@@ -59,8 +59,9 @@ func _body_entered(body):
 	if body.name == "Chair": body.pull_out()
 	elif body.name == "Player" and steal_timer>steal_cooldown:
 		print("stealing")
-		GlobalVars.add_coins(-2 - randi() % 3, true)
-		steal_timer = 0
+		if GlobalVars.coins > 0:
+			GlobalVars.add_coins(-2 - randi() % 3, true)
+			steal_timer = 0
 		var vector_copy = vector_index
 		while vector_copy == vector_index:
 			vector_index = randi() % 4
