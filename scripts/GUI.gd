@@ -7,8 +7,12 @@ func lerp(a, b, t):
 	return a + (b - a) * t
 
 func _process(delta):
-	steal_label.font_color.a = lerp(steal_label.font_color.a, 0, 0.2)
-	steal_label.font_outline_color.a = lerp(steal_label.font_outline_color.a, 0, 0.2)
+	var font_color = steal_label.font_color
+	var font_out_color = steal_label.font_outline_color
+	font_color.a = lerp(font_color.a, 0, 0.2)
+	font_out_color.a = lerp(font_out_color.a, 0, 0.2)
+	steal_label.font_color = font_color
+	steal_label.font_outline_color = font_out_color
 
 func on_score_changed():
 	print("score was changed")

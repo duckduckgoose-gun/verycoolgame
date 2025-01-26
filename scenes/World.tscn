@@ -47,6 +47,19 @@ script = ExtResource("1_g0fv4")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("6_xftqb")
 
+[node name="StealLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -207.0
+offset_top = 46.0
+offset_right = 207.0
+offset_bottom = 72.0
+grow_horizontal = 2
+text = "Your money has been stolen"
+label_settings = SubResource("LabelSettings_pd6rb")
+horizontal_alignment = 1
+
 [node name="CoinLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = -0.124

@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal on_robbery
-
 const movement_vectors : Array[Vector2] = [
 	Vector2(1, 0), Vector2(-1, 0), Vector2(0, 1), Vector2(0, -1)
 ]
@@ -36,9 +34,8 @@ func _physics_process(delta):
 		var collider = collision.get_collider()
 		if collider is Chair: collider.pull_out()
 		elif collider.name == "Player" and steal_timer >= steal_cooldown:
-			GlobalVars.add_coins(-2 - randi() % 3)
+			GlobalVars.add_coins(-2 - randi() % 3, true)
 			steal_timer = 0
-			on_robbery.emit()
 
 	if trash_timer >= cur_trash_time:
 		create_trash()
