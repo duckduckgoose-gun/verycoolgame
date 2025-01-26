@@ -28,6 +28,7 @@ const trash = preload("res://scenes/trash.tscn")
 func _ready():
 	cur_trash_time = trash_time + trash_margin * (2 * randf() - 1)
 	vector_index = randi() % 4
+	time_elapsed += randf() * 3
 
 func _physics_process(delta):
 	time_elapsed += delta
