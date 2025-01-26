@@ -17,7 +17,7 @@ config/icon="res://textures/icon.svg"
 
 [autoload]
 
-World="*res://scripts/World.gd"
+GlobalVars="*res://scripts/World.gd"
 
 [rendering]
 

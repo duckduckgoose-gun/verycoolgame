@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://btf6ckakk36m7"]
+[gd_scene load_steps=12 format=3 uid="uid://btf6ckakk36m7"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_e2rtj"]
-[ext_resource type="Script" path="res://scripts/World.gd" id="1_g0fv4"]
 [ext_resource type="SpriteFrames" uid="uid://bd52y85gj81xt" path="res://other-assets/player_topdown.tres" id="2_r02u1"]
 [ext_resource type="Texture2D" uid="uid://blqa2daftquch" path="res://textures/ground.png" id="3_3hvb5"]
 [ext_resource type="Script" path="res://scripts/Trash.gd" id="4_ths46"]
 [ext_resource type="Texture2D" uid="uid://duxo1xo7gm8pf" path="res://textures/icon.svg" id="5_riqdb"]
+[ext_resource type="Script" path="res://scenes/GUI.gd" id="6_xftqb"]
+
+[sub_resource type="GDScript" id="GDScript_faray"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1a05n"]
 texture = ExtResource("3_3hvb5")
@@ -36,7 +38,7 @@ height = 12.0
 radius = 3.16228
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_g0fv4")
+script = SubResource("GDScript_faray")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_6nla5")
@@ -58,15 +60,27 @@ shape = SubResource("CapsuleShape2D_lx3vm")
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(4, 4)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Trash" type="Area2D" parent="."]
 position = Vector2(-30, -7)
 script = ExtResource("4_ths46")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Trash"]
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("5_riqdb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trash"]
 shape = SubResource("CircleShape2D_dmmc8")
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="collect"]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_xftqb")
+
+[node name="CoinLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="body_entered" from="Trash" to="Trash" method="collect"]
