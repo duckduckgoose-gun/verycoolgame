@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1kxlrukvu1md" path="res://scenes/player.tscn" id="1_f6fvf"]
 [ext_resource type="Texture2D" uid="uid://blqa2daftquch" path="res://textures/ground.png" id="2_5f8ie"]
-[ext_resource type="Script" path="res://scenes/Vending.gd" id="3_3q6wa"]
+[ext_resource type="Script" path="res://scripts/Vending.gd" id="3_3q6wa"]
 [ext_resource type="Texture2D" uid="uid://d384ap8owuv2w" path="res://textures/bread_vending_machine.png" id="3_alt3l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ijy3a"]
