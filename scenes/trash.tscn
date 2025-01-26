@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dei83n42liptn"]
 
 [ext_resource type="Script" path="res://scripts/Trash.gd" id="1_57hsu"]
-[ext_resource type="Texture2D" uid="uid://duxo1xo7gm8pf" path="res://textures/icon.svg" id="2_q7xty"]
+[ext_resource type="Texture2D" uid="uid://bbs40wka3dqrf" path="res://textures/trash/cola.png" id="2_y5cyo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dmmc8"]
 radius = 3.16228
@@ -12,8 +12,8 @@ scale = Vector2(1.52, 1.52)
 script = ExtResource("1_57hsu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("2_q7xty")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_y5cyo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dmmc8")

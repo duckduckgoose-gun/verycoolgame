@@ -86,3 +86,5 @@ zoom = Vector2(4, 4)
 [node name="CSStudentInst" type="Node2D" parent="."]
 
 [node name="CSStudent" parent="CSStudentInst" instance=ExtResource("8_av4lr")]
+speed = 40.0
+steal_cooldown = 0.25
