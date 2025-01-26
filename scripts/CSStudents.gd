@@ -20,6 +20,7 @@ var vector_index = 0;
 var cur_trash_time = 0
 var trash_timer = 0
 var steal_timer = 1234567890
+var switch_timer = 0
 
 var time_elapsed = 0
 
@@ -40,6 +41,12 @@ func _physics_process(delta):
 		create_trash()
 	else:
 		trash_timer += delta
+
+	if switch_timer >= 2.7:
+		# switch_timer = 0
+		switch_dir()
+	else: switch_timer += delta
+
 
 	sprite.position.y = round((sin(time_elapsed * 18) + 1) / 2) * 0.5
 	
@@ -69,7 +76,11 @@ func _body_entered(body):
 		if GlobalVars.coins > 0:
 			GlobalVars.add_coins(-2 - randi() % 3, true)
 			steal_timer = 0
-		var vector_copy = vector_index
-		while vector_copy == vector_index:
-			vector_index = randi() % 4
-			print(vector_index,vector_copy)
+		switch_dir()
+
+func switch_dir():
+	switch_timer = 0
+	var vector_copy = vector_index
+	while vector_copy == vector_index:
+		vector_index = randi() % 4
+		print(vector_index,vector_copy)
