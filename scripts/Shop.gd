@@ -1,5 +1,7 @@
 extends Area2D
 
+signal shop_visibility_lmao(peepeepoopoo : bool)
+
 # @onready @export
 
 func _process(delta):
@@ -8,5 +10,5 @@ func _process(delta):
 
 func toggle_shop(body):
 	if body.name == "Player":
-        # GlobalVars.shop_visility = 
+        shop_visibility_lmao.emit(true) 
 		pass

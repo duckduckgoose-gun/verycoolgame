@@ -2,8 +2,25 @@ extends Node2D
 
 signal coin_change
 signal robbery
+signal win
 
+var inventory: Dictionary = {
+	"metal_cans": 0,
+	"wrappers": 0,
+	"sandvich": 0,
+	"special_bread": 0 # coin multiplier or smthj lmao
+	"focaccia_bread": 0
+}
 var coins: int = 0
+var previously_won = false
+
+func _process(delta):
+	if inventory["focaccia_bread"] > 0 and not previously_won:
+		win.emit()
+		previously_won = true
+
+func add_trash(type : String):
+	inventory[type] += 1
 
 enum States {INSIDE,OUTSIDE}
 signal game_mode_changed(new_state)
