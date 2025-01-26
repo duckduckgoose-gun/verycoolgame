@@ -21,6 +21,8 @@ var cur_trash_time = 0
 var trash_timer = 0
 var steal_timer = 1234567890
 
+var time_elapsed = 0
+
 const trash = preload("res://scenes/trash.tscn")
 @onready var all_trash = $"../../../TrashInst"
 func _ready():
@@ -28,7 +30,7 @@ func _ready():
 	vector_index = randi() % 4
 
 func _physics_process(delta):
-	#
+	time_elapsed += delta
 	steal_timer += delta
 	
 	move_and_collide(movement_vectors[vector_index] * delta * speed)
